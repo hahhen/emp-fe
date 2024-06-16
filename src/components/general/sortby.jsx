@@ -5,7 +5,6 @@ import { Funnel } from "@medusajs/icons"
 import Link from "next/link"
 
 export default function SortBy({searchParams}) {
-    console.log(searchParams)
     const sortBy = searchParams || "created_at"
     return (
         <RadioGroup value={sortBy} className="text-ui-fg-subtle">
@@ -22,7 +21,7 @@ export default function SortBy({searchParams}) {
     )
 }
 
-export function SortByButton({ className }) {
+export function SortByButton({ searchParams }) {
     return (
         <div className="block sm:hidden">
             <DropdownMenu>
@@ -34,7 +33,7 @@ export function SortByButton({ className }) {
                 <DropdownMenu.Content className="p-3">
                     <div className="flex flex-col gap-2">
                         <Heading className="text-ui-fg-muted text-sm">Sort by</Heading>
-                        <SortBy />
+                        <SortBy searchParams={searchParams} />
                     </div>
                 </DropdownMenu.Content>
             </DropdownMenu>

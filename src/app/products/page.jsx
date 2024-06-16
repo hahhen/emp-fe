@@ -21,7 +21,7 @@ export default async function Products({searchParams}) {
                     <Heading className="font-normal">
                         All products
                     </Heading>
-                    <SortByButton />
+                    <SortByButton searchParams={searchParams.sortBy} />
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     <ProductFeed products={items}/>
