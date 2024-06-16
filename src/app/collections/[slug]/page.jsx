@@ -16,7 +16,7 @@ export default async function Products({ searchParams, params }) {
         <>
             <section className="h-[200px] relative w-full flex flex-col justify-center items-center">
                 <Image src={collection.banner} draggable={false} width={2000} height={1000} className="absolute top-0 left-0 object-cover w-full h-full" quality={100} />
-                <Heading className="text-4xl z-10 font-normal text-black tracking-tighter">
+                <Heading className="text-4xl z-10 font-normal tracking-tighter">
                     {collection.name}
                 </Heading>
             </section>

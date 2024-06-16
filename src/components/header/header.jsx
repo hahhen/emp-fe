@@ -4,6 +4,11 @@ import Link from "next/link";
 import Cart from "@/components/header/cartbutton";
 import Account from "@/components/header/accountbutton";
 import Sidebar from "@/components/header/sidebar";
+import SearchBar from "@/components/header/searchbar";
+
+export function Logo(){
+    return <Image src={'https://sphppjbkztubyvdobqvz.supabase.co/storage/v1/object/public/emp/general/favicon.png'} className="dark:invert" width={30} height={30} />
+}
 
 export default function Header() {
     return (
@@ -11,7 +16,7 @@ export default function Header() {
             <div className="flex gap-5 items-center text-xs text-ui-fg-subtle">
                 <Sidebar />
                 <Link href="/" className="flex items-center">
-                    <Image src={'https://sphppjbkztubyvdobqvz.supabase.co/storage/v1/object/public/emp/general/favicon.png'} className="dark:invert" width={30} height={30} />
+                    <Logo />
                 </Link>
                 <Link className="hidden sm:block hover:text-ui-fg-base transition-all" href="/">Home</Link>
                 <Link className="hidden sm:block hover:text-ui-fg-base transition-all" href="/collections">Collections</Link>
@@ -21,6 +26,7 @@ export default function Header() {
                 <div className="hidden sm:block">
                     <Input placeholder="Search" id="search-input" type="search" />
                 </div>
+                <SearchBar className={"sm:hidden"} />
                 <Cart />
                 <Account />
             </div>
