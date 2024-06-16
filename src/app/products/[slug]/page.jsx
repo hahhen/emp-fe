@@ -11,8 +11,8 @@ export default async function ProductPage({ params }) {
     const product = products.product[0];
     const collection = products.collection[0];
     return (
-        <section className="w-full py-12 px-8 flex gap-4 relative">
-            <div className="flex flex-col gap-2 sticky top-48 h-min w-full max-w-[350px]">
+        <section className="w-full py-12 px-8 flex flex-col md:flex-row gap-4 md:relative">
+            <div className="flex flex-col gap-2 md:sticky top-48 h-min w-full max-w-[350px]">
                 <Link href={`/collections/${collection.slug}`} className={"transition-all text-ui-fg-muted hover:text-ui-fg-subtle"}>
                     <Heading className="font-normal text-md">{collection.name}</Heading>
                 </Link>
@@ -28,11 +28,14 @@ export default async function ProductPage({ params }) {
                     </Container>
                 ))}
             </div>
-            <div className="flex flex-col sticky h-min top-48 gap-6 w-full max-w-[350px]">
-                <ProductInfo variant={product.variant.variant} />
-                <BuyButton />
+            <div className="flex flex-col md:sticky h-min top-48 gap-6 w-full max-w-[350px]">
+                <ProductInfo variant={product.variant.variant} id={product.id} />
+                <hr />
+                <Heading className="text-2xl tracking-tighter font-semibold">
+                    ${product.price}
+                </Heading>
+                <BuyButton id={product.id} variantLength={product.variant.variant.length} />
             </div>
-
         </section>
     )
 }
