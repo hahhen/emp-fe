@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/header/header";
 import { clx } from "@medusajs/ui";
 import { Provider } from "jotai"
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,10 +14,11 @@ export const metadata = {
 
 export function Providers({ children }) {
   return (
-    <Provider>
-      {children}
-    </Provider>
-
+    <SessionProvider>
+      <Provider>
+        {children}
+      </Provider>
+    </SessionProvider>
   )
 }
 

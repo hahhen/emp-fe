@@ -5,8 +5,9 @@ import Cart from "@/components/header/cartbutton";
 import Account from "@/components/header/accountbutton";
 import Sidebar from "@/components/header/sidebar";
 import SearchBar from "@/components/header/searchbar";
+import { SessionProvider } from "next-auth/react";
 
-export function Logo(){
+export function Logo() {
     return <Image src={'https://sphppjbkztubyvdobqvz.supabase.co/storage/v1/object/public/emp/general/favicon.png'} className="dark:invert" width={30} height={30} />
 }
 
