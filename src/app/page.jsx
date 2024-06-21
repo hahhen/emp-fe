@@ -17,7 +17,7 @@ export default async function Home() {
         <Heading level="h3" className="text-2xl z-10 font-normal text-gray-700 tracking-tighter">
           By founders, for founders
         </Heading>
-        <Button variant="secondary" className="mt-5">Shop Now</Button>
+        <Button variant="secondary" className="mt-5" asChild><Link href={"/collections/drop-0"}>Shop Now</Link></Button>
       </section>
       <section className="flex flex-col w-full py-12 px-8">
         <div className="flex flex-col w-full gap-4">

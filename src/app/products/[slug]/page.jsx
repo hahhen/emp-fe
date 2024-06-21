@@ -34,7 +34,7 @@ export default async function ProductPage({ params }) {
                 <Heading className="text-2xl tracking-tighter font-semibold">
                     ${product.price}
                 </Heading>
-                <BuyButton id={product.id} variantLength={product.variant.variant.length} />
+                <BuyButton id={product.id} product={product} variantLength={product.variant.variant.length} />
             </div>
         </section>
     )
