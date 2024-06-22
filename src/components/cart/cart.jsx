@@ -9,6 +9,18 @@ import Image from "next/image";
 export const cartAtom = atomWithStorage('cart', [])
 
 export default function CartDialog() {
+    const dialog = usePrompt()
+    const deleteEntity = async () => {
+        const userHasConfirmed = await dialog({
+            title: "Remove product from cart?",
+            description: "This will remove this product from your cart. Is this right?",
+        })
+        if (userHasConfirmed) {
+            newCart.splice(idx, 1)
+            setCart(newCart)
+        }
+    }
+
     const [cart, setCart] = useAtom(cartAtom)
     return (
         <div className="flex flex-col gap-2">
@@ -45,17 +57,6 @@ export default function CartDialog() {
                                     newCart[idx].quantity--
                                     setCart(newCart)
                                 } else {
-                                    const dialog = usePrompt()
-                                    const deleteEntity = async () => {
-                                        const userHasConfirmed = await dialog({
-                                            title: "Remove product from cart?",
-                                            description: "This will remove this product from your cart. Is this right?",
-                                        })
-                                        if (userHasConfirmed) {
-                                            newCart.splice(idx, 1)
-                                            setCart(newCart)
-                                        }
-                                    }
                                     deleteEntity()
                                 }
                             }} className="scale-50 -mt-0.5"><MinusMini /></IconButton>
