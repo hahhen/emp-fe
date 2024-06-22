@@ -9,19 +9,19 @@ import Image from "next/image";
 export const cartAtom = atomWithStorage('cart', [])
 
 export default function CartDialog() {
+    const [cart, setCart] = useAtom(cartAtom)
     const dialog = usePrompt()
-    const deleteEntity = async () => {
+    const deleteEntity = async (idx) => {
         const userHasConfirmed = await dialog({
             title: "Remove product from cart?",
             description: "This will remove this product from your cart. Is this right?",
         })
         if (userHasConfirmed) {
+            var newCart = [...cart]
             newCart.splice(idx, 1)
             setCart(newCart)
         }
     }
-
-    const [cart, setCart] = useAtom(cartAtom)
     return (
         <div className="flex flex-col gap-2">
             <Heading level="h2">Cart ({cart.length})</Heading>
@@ -57,7 +57,7 @@ export default function CartDialog() {
                                     newCart[idx].quantity--
                                     setCart(newCart)
                                 } else {
-                                    deleteEntity()
+                                    deleteEntity(idx)
                                 }
                             }} className="scale-50 -mt-0.5"><MinusMini /></IconButton>
                         </div>
