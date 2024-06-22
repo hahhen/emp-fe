@@ -6,8 +6,7 @@ import { SignIn, SignOut } from "@/lib/auth-actions";
 import { useSession, SessionProvider } from 'next-auth/react';
 
 export default function Account() {
-    const session = useSession()
-    console.log(session)
+    const session = useSession();
     return (
         <DropdownMenu>
             <DropdownMenu.Trigger asChild><IconButton><User /></IconButton></DropdownMenu.Trigger>

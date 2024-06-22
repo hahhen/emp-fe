@@ -1,20 +1,28 @@
 "use client"
 
 import { ShoppingCart } from "@medusajs/icons";
-import { DropdownMenu, IconButton } from "@medusajs/ui";
-import Link from "next/link";
-import CartDialog from "../cart/cart";
+import { DropdownMenu, Badge, IconButton } from "@medusajs/ui";
+import CartDialog, { cartAtom } from "@/components/cart/cart";
+import { useAtom } from "jotai";
 
 export default function Cart() {
+    const [cart] = useAtom(cartAtom)
+    console.log(cart)
     return (
-
         <DropdownMenu>
             <DropdownMenu.Trigger asChild>
-                <IconButton asChild>
-                    <Link href="/cart"><ShoppingCart /></Link>
-                </IconButton>
+                <div className="relative">
+                    <IconButton >
+                        <ShoppingCart />
+                    </IconButton>
+                    {cart.length > 0 &&
+                        <Badge size="2xsmall" className="absolute flex justify-center items-center -right-2 -bottom-2">
+                            {cart.length}
+                        </Badge>
+                    }
+                </div>
             </DropdownMenu.Trigger>
-            <DropdownMenu.Content className="z-50 p-2 w-screen max-w-xl">
+            <DropdownMenu.Content className="mt-2 p-2 w-screen max-w-xl overflow-auto">
                 <CartDialog />
             </DropdownMenu.Content>
         </DropdownMenu>
