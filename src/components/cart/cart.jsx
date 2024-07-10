@@ -1,10 +1,11 @@
 "use client"
 
 import { MinusMini, PlusMini } from "@medusajs/icons";
-import { DropdownMenu, Heading, IconButton, Input, usePrompt } from "@medusajs/ui";
+import { Button, DropdownMenu, Heading, IconButton, Input, usePrompt } from "@medusajs/ui";
 import { atom, useAtom } from "jotai";
 import { atomWithStorage } from 'jotai/utils'
 import Image from "next/image";
+import Link from "next/link";
 
 export const cartAtom = atomWithStorage('cart', [])
 
@@ -65,6 +66,9 @@ export default function CartDialog() {
                 </div>
             ))
             }
+            <Button className="ml-auto" variant="secondary" asChild>
+                <Link href={'/cart'}>Checkout</Link>
+            </Button>
         </div >
     )
 }

@@ -7,7 +7,6 @@ import { useAtom } from "jotai";
 
 export default function Cart() {
     const [cart] = useAtom(cartAtom)
-    console.log(cart)
     return (
         <DropdownMenu>
             <DropdownMenu.Trigger asChild>
@@ -22,7 +21,7 @@ export default function Cart() {
                     }
                 </div>
             </DropdownMenu.Trigger>
-            <DropdownMenu.Content className="mt-2 p-2 w-screen max-w-xl overflow-auto">
+            <DropdownMenu.Content className="p-2 w-screen max-w-xl overflow-auto">
                 <CartDialog />
             </DropdownMenu.Content>
         </DropdownMenu>
