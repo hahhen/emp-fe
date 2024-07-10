@@ -3,13 +3,15 @@
 import { cartAtom } from "@/components/cart/cart";
 import { MinusMini, PlusMini } from "@medusajs/icons";
 import { Button, DropdownMenu, Heading, IconButton, Input, usePrompt, Table } from "@medusajs/ui";
-import { atom, useAtom } from "jotai";
-import { atomWithStorage } from 'jotai/utils'
+import { useAtom } from "jotai";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CartPage() {
     const [cart, setCart] = useAtom(cartAtom)
-    const subtotal = cart.reduce((acc, item) => acc + parseFloat(item.total()), 0)
+    const subtotal = cart.length > 0 ? cart.reduce((acc, item) => acc + parseFloat(item.total()), 0) : 0
+    const shipping = 0
+    const total = subtotal + shipping
     const dialog = usePrompt()
     const deleteEntity = async (idx) => {
         const userHasConfirmed = await dialog({
@@ -104,14 +106,22 @@ export default function CartPage() {
                         </Heading>
                         <div className="flex flex-col text-sm text-ui-fg-subtle gap-1">
                             <div className="flex justify-between">
-                                <span className="text-ui-fg-subtle">Subtotal</span>
+                                <span>Subtotal</span>
                                 <span>${subtotal}</span>
                             </div>
                             <div className="flex justify-between">
-                                <span className="text-ui-fg-subtle">Shipping</span>
-                                <span>$0.00</span>
+                                <span>Shipping</span>
+                                <span>${shipping}</span>
                             </div>
-                            <hr className="my-4"/>
+                            <hr className="my-4" />
+                            <div className="flex text-lg text-ui-fg-base justify-between">
+                                <span>Total</span>
+                                <span>${total}</span>
+                            </div>
+                            <hr className="my-4" />
+                            <Button className="w-full" variant="secondary" asChild>
+                                <Link href={'/cart'}>Checkout</Link>
+                            </Button>
                         </div>
                     </div>
                 </div>
