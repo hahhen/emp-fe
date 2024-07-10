@@ -49,7 +49,11 @@ export default function BuyButton({ variantLength, product }) {
                 variant: filteredVariants,
                 price: product.price,
                 picture: product.picture[0],
-                quantity: 1
+                quantity: 1,
+                total: function() {
+                    const total = this.price * this.quantity
+                    return total.toFixed(2)
+                }
             }
         )} variant='primary' disabled={filteredVariants.length != variantLength ? true : false} size='large' className='w-full text-white'>
             Add to cart
