@@ -10,7 +10,7 @@ export default async function Home() {
   return (
     <>
       <section className="h-[550px] relative w-full flex flex-col justify-center items-center">
-        <Image src={"https://sphppjbkztubyvdobqvz.supabase.co/storage/v1/object/public/emp/collections/2560px-Ali_Inay_2014-10-28__Unsplash_.jpg?t=2024-06-14T17%3A37%3A21.239Z"} draggable={false} width={2000} height={1000} className="absolute top-0 left-0 object-cover w-full h-full" quality={100} />
+        <Image src={"https://yrdhniebzjazignetisf.supabase.co/storage/v1/object/public/emp/collections/2560px-Ali_Inay_2014-10-28__Unsplash_.jpg?t=2024-06-14T17%3A37%3A21.239Z"} draggable={false} width={2000} height={1000} className="absolute top-0 left-0 object-cover w-full h-full" quality={100} />
         <Heading className="text-4xl z-10 font-normal text-black tracking-tighter">
           DROP 0
         </Heading>

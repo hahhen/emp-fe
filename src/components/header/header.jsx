@@ -8,7 +8,7 @@ import SearchBar from "@/components/header/searchbar";
 import { SessionProvider } from "next-auth/react";
 
 export function Logo() {
-    return <Image src={'https://sphppjbkztubyvdobqvz.supabase.co/storage/v1/object/public/emp/general/favicon.png'} className="dark:invert" width={30} height={30} />
+    return <Image src={'https://yrdhniebzjazignetisf.supabase.co/storage/v1/object/public/emp/general/favicon.png'} className="dark:invert" width={30} height={30} />
 }
 
 export default function Header() {
